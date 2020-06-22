@@ -32,17 +32,16 @@ Webhooks provide a simle and liteweight push-style notification splution. Using 
 ## Events
 Most of order events triggered by corresponding actions. Action usually also set the certain order flags
 
-Event(action) | Flag | Description
+Event | Flag | Description
 ----- | ------ | -----
 ping | - | Ping message, client must reply with 2xx HTTP Code
 new | - | New Order message
-accept | accepted | Order Accepted
-reject | rejected | Order Rejected
-complete | completed | Order Complete
-part_complete | partCompleted | Order Partially complete (multiple allowed)
-payment | paid | Order has been paid with cash
-provider_payment | paid | Order paid with payment provoder (card within the app)
-close | closed | Order closed (removed from the active list)
+accepted | accepted | Order Accepted
+rejected | rejected | Order Rejected
+completed | completed | Order Complete
+part_completed | partCompleted | Order Partially complete (multiple allowed)
+paid | paid | Order has been paid (cash or app)
+closed | closed | Order closed (removed from the active list)
 
 ## Webhook call validation
 Signature verification, helps to verify authenticity of webhook request, as well as prevents replay attacks(under man-in-the-middle conditions). This process involves:
