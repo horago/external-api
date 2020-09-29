@@ -21,7 +21,7 @@ Swagger UI is available here: http://api.horago.com/swagger. It contains test UI
 Forms authorization is used (user credentials must be provided in order to receive API key).
 
 A POST request to
-api.horago.com/token must be sent with the following:
+http://api.horago.com/token must be sent with the following:
 * HTTP headers: Content-Type: application/x-www-form-urlencoded
 * Payload: grant_type=password&username=**&lt;login&gt;**&password=**&lt;password&gt;**
 
@@ -72,11 +72,19 @@ Should the original webhook call fail (non-2xx HTTP response code returned or ti
 ...
 HTTP header value `idempotency-key` may be leveraged in order to prevent double-posting of the same event. Client has to remember idempotency keys at least for the period of timestamp window tolerance
 
-## Pings
+## Pings (not finalized)
 
 Server may be sending regular ping events in order to ensure that client is up and ready to process actual events
 
 Timestamp Date format used: https://en.wikipedia.org/wiki/ISO_8601
+
+## Menu manipulation (beta)
+HAL link to a batch menu update: **post-menu-items**
+
+Mode values:
+* partialUpdate - may be used to update one or several items. Only new categories added, existing categories would not be changed
+* fullUpdate - should be used for a full menu update. Category structure/names would not be changed if modified within Horago previously (new categories may be created), but any items which where not updated would be disabled
+* fullRestructure (not ready yet) - the resulting menu would correspond to the request. i.e. category structure/names and child items
 
 ## GET Order list example response 
 `
