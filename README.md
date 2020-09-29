@@ -15,10 +15,15 @@ See [WebApi.Hal](https://github.com/JakeGinnivan/WebApi.Hal) for details...
 Please note that HATEOAS is enabled only when the following HTTP request header is used: `Accept: application/hal+json`, otherwise response would not contain additional HATEOAS tags.
 
 ## Swagger
-Swagger UI is available by [TBD](...). It contains test UI as well as data structure examples.
+Swagger UI is available here: http://api.horago.com/swagger. It contains test UI as well as data structure examples.
 
 ## Authorization
-TBD...
+Forms authorization is used (user credentials must be provided in order to receive API key).
+
+A POST request to
+api.horago.com/token must be sent with the following:
+* HTTP headers: Content-Type: application/x-www-form-urlencoded
+* Payload: grant_type=password&username=**&lt;login&gt;**&password=**&lt;password&gt;**
 
 ## Available methods
 * Login
