@@ -25,6 +25,13 @@ http://api.horago.com/token must be sent with the following:
 * HTTP headers: Content-Type: application/x-www-form-urlencoded
 * Payload: grant_type=password&username=**&lt;login&gt;**&password=**&lt;password&gt;**
 
+## Workflow
+* <a href="#authorization">Login</a> - Post credentials in order to receive authentication token
+* Make a GET request to <a href="http://api.horago.com/swagger/ui/index#/Home">Home</a> object. This would return all options available in a form of a HAL links. Only <i>default-place</i> is available at the moment.
+* Use the <i>default-place</i> link from the previous step in order to fetch some place information + HAL links to actions available for that particular place:
+    * <i>active-orders</i> - can be used to fetch a list of active orders
+    * <i>post-menu-items</i> - ...for <a href="#menu-modification">menu modification</a>
+
 ## Available methods
 * Login
 * Get default Place digest info
@@ -78,13 +85,25 @@ Server may be sending regular ping events in order to ensure that client is up a
 
 Timestamp Date format used: https://en.wikipedia.org/wiki/ISO_8601
 
-## Menu manipulation (beta)
+## Menu modification
 HAL link to a batch menu update: **post-menu-items**
+
+The menu may be <a href="api.horago.com/swagger/ui/index#!/MenuItems/UpsertItems">updated</a> partially as well as a whole structure. In any case a single POST request is used with the following main attributes:
+* <i>categories</i> - array of categories
+* <i>options</i> - item option definition with the defaul prices(same options may be shared between several items throuh the optionRefs)
+* <i>items</i> - array of products
+    * options - non-mandatory array of options
+    * catgoryIds - array of category Ids defined previously  
+    * optionRefs - arry of references to options defined previously(with the possible price overrides)
+
+* <i>items</i> - array of products with the possibility to define its own set of options if needed
+
+* <i>mode</i> - update strategy
 
 Mode values:
 * partialUpdate - may be used to update one or several items. Only new categories added, existing categories would not be changed
 * fullUpdate - should be used for a full menu update. Category structure/names would not be changed if modified within Horago previously (new categories may be created), but any items which where not updated would be disabled
-* fullRestructure (not ready yet) - the resulting menu would correspond to the request. i.e. category structure/names and child items
+* fullRestructure (beta) - the resulting menu would correspond to the request. i.e. category structure/names and child items
 
 ## GET Order list example response 
 `
