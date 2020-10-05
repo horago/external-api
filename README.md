@@ -32,12 +32,6 @@ http://api.horago.com/token must be sent with the following:
     * <i>active-orders</i> - can be used to fetch a list of active orders
     * <i>post-menu-items</i> - ...for <a href="#menu-modification">menu modification</a>
 
-## Available methods
-* Login
-* Get default Place digest info
-* Get Order List for the place (default one) (see example below)
-* Based on the actions available for the Order, call a generic handler
-
 # Webhooks
 Webhooks provide a simle and liteweight push-style notification splution. Using Webhooks client application can be notified about certain events happening on a server.
 
