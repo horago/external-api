@@ -15,19 +15,19 @@ See [WebApi.Hal](https://github.com/JakeGinnivan/WebApi.Hal) for details...
 Please note that HATEOAS is enabled only when the following HTTP request header is used: `Accept: application/hal+json`, otherwise response would not contain additional HATEOAS tags.
 
 ## Swagger
-Swagger UI is available here: http://api.horago.com/swagger. It contains test UI as well as data structure examples.
+Swagger UI is available here: https://api.horago.com/swagger. It contains test UI as well as data structure examples.
 
 ## Authorization
 Forms authorization is used (user credentials must be provided in order to receive API key).
 
 A POST request to
-http://api.horago.com/token must be sent with the following:
+https://api.horago.com/token must be sent with the following:
 * HTTP headers: Content-Type: application/x-www-form-urlencoded
 * Payload: grant_type=password&username=**&lt;login&gt;**&password=**&lt;password&gt;**
 
 ## Workflow
 * <a href="#authorization">Login</a> - Post credentials in order to receive authentication token
-* Make a GET request to <a href="http://api.horago.com/swagger/ui/index#/Home">Home</a> object. This would return all options available in a form of a HAL links. Only <i>default-place</i> is available at the moment.
+* Make a GET request to <a href="https://api.horago.com/swagger/ui/index#/Home">Home</a> object. This would return all options available in a form of a HAL links. Only <i>default-place</i> is available at the moment.
 * Use the <i>default-place</i> link from the previous step in order to fetch some place information + HAL links to actions available for that particular place:
     * <i>active-orders</i> - can be used to fetch a list of active orders
     * <i>post-menu-items</i> - ...for <a href="#menu-modification">menu modification</a>
@@ -82,7 +82,7 @@ Timestamp Date format used: https://en.wikipedia.org/wiki/ISO_8601
 ## Menu modification
 HAL link to a batch menu update: **post-menu-items**
 
-The menu may be <a href="api.horago.com/swagger/ui/index#!/MenuItems/UpsertItems">updated</a> partially as well as a whole structure. In any case a single POST request is used with the following main attributes:
+The menu may be <a href="https://api.horago.com/swagger/ui/index#!/MenuItems/UpsertItems">updated</a> partially as well as a whole structure. In any case a single POST request is used with the following main attributes:
 * <i>categories</i> - array of categories
 * <i>options</i> - item option definition with the defaul prices(same options may be shared between several items throuh the optionRefs)
 * <i>items</i> - array of products
