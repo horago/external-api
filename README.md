@@ -79,6 +79,16 @@ Server may be sending regular ping events in order to ensure that client is up a
 
 Timestamp Date format used: https://en.wikipedia.org/wiki/ISO_8601
 
+## Order Polling
+When usage of webhooks is not an option, it is possible to do regular API polling, in order to find out about new orders. And instead of fetching a full list of active orders, there is a way to fetch only new items if any, which makes this way still pretty network efficient.
+
+In order to do that one should use a checkneworders HAL link which is a part of Place object. But this particular link should be used only for the first request. Next requests should be made with the checkneworders link which will be returned with the first(preceeding, in general) request.
+
+A few points to note with this approach:
+With this approach the server is tracking the orders returned to client and marks these orders as acknowledged. But actual acknowledge is happening during the 'next' request. So if new order was returned to the client and client failed, the same order will be returned again after once the client recovers and makes another request.
+Retries are possible: should the request fail, it is ok to repeat the same request again.
+It is ok to make requests in a several threads, but each thread may see only a part of the orders, since other threads may have feteched some new orders already and acked its reception. 
+
 ## Menu modification
 HAL link to a batch menu update: **post-menu-items**
 
