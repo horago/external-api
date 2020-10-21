@@ -79,7 +79,7 @@ Server may be sending regular ping events in order to ensure that client is up a
 
 Timestamp Date format used: https://en.wikipedia.org/wiki/ISO_8601
 
-## Order Polling
+# Order Polling
 When usage of webhooks is not an option, it is possible to do regular API polling, in order to find out about new orders. And instead of fetching a full list of active orders, there is a way to fetch only new items if any, which makes this way still pretty network efficient.
 
 In order to do that one should use a checkneworders HAL link which is a part of Place object. But this particular link should be used only for the first request. Next requests should be made with the checkneworders link which will be returned with the first(preceeding, in general) request.
