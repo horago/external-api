@@ -255,7 +255,7 @@ Mode values:
         "isTest": true,
         "created": "2020-05-29T00:03:02.208Z",
         "client": {
-          "name": "Nokolo"
+          "name": "Nikolo"
         },
         "currency": {
           "code": "EUR"
