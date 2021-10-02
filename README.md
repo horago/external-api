@@ -212,7 +212,7 @@ Mode values:
         "isTest": true,
         "created": "2020-05-28T00:41:37.75Z",
         "client": {
-          "name": "Oleg Tsilinchuk"
+          "name": "Nikolo"
         },
         "currency": {
           "code": "EUR"
@@ -255,7 +255,7 @@ Mode values:
         "isTest": true,
         "created": "2020-05-29T00:03:02.208Z",
         "client": {
-          "name": "Oleg Tsilinchuk"
+          "name": "Nokolo"
         },
         "currency": {
           "code": "EUR"
