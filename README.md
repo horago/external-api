@@ -33,7 +33,7 @@ https://api.horago.com/token must be sent with the following:
     * <i>post-menu-items</i> - ...for <a href="#menu-modification">menu modification</a>
 
 # Webhooks
-Webhooks provide a simle and liteweight push-style notification splution. Using Webhooks client application can be notified about certain events happening on a server.
+Webhooks provide a simple and liteweight push-style notification splution. Using Webhooks client application can be notified about certain events happening on a server.
 
 ## Events
 Most of order events triggered by corresponding actions. Action usually also set the certain order flags
@@ -110,7 +110,7 @@ Mode values:
 * fullRestructure (beta) - the resulting menu would correspond to the request. i.e. category structure/names and child items
 
 ## GET Order list example response 
-`
+```javascript
 {
   "total": 184.4,
   "totalResults": 20,
@@ -272,10 +272,10 @@ Mode values:
         "terms": {
           "type": "pickup",
           "when": "2020-05-29T08:00:00Z",
-          "notes": "Dijdjdhdj",
+          "notes": "ASAP please!",
           "pickupFrom": {
             "id": "local",
-            "name": "Test (Usual flow)"
+            "name": "Test"
           }
         },
         "etag": "70aee3a66303d808",
@@ -295,5 +295,5 @@ Mode values:
     ]
   }
 }
-`
+```
  
